@@ -16,15 +16,6 @@ router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/auth/google/fail" }),
   (req, res) => {
-    sendMail(
-      req.user.email,
-      "Welcome to Instagram",
-      `
-      <h1>Welcome to Instagram</h1>
-      <p>Thank you for signing up on Instagram</p>
-      <p>Your account has been successfully created</p>
-      <p>your password is ${req.user.email}${req.user.name}</p>`
-    );
     res.redirect(`http://localhost:5173/wait?id=${req.user._id}`);
   }
 );

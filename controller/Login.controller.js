@@ -4,7 +4,7 @@ const errorHandler = require("../utils/errorHandler.js");
 const jwt = require("jsonwebtoken");
 const sendMail=require("../utils/sendMail.js")
 const SignUp = async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, email, password,DPurl} = req.body;
 
   try {
     const user = await UserModal.findOne({ email: email });
@@ -17,6 +17,7 @@ const SignUp = async (req, res, next) => {
       name,
       email,
       password: hashedPassword,
+      DPurl,
     });
 
     await newUser.save();

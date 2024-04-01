@@ -16,7 +16,7 @@ const UserRoutes=require("./routes/users/user.js")
 dotenv.config();
 app.use(cors(
   {
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173","http://localhost:3000","http://localhost:5174"],
     credentials: true,
 
   }

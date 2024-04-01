@@ -3,7 +3,7 @@ const UserModel = require("../../Database/Models/User.js");
 const googleStrategy = require("passport-google-oauth20").Strategy;
 const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
-const errorHandler = require("../../utils/errorHandler.js");
+const sendMail = require("../../utils/sendMail.js");
 dotenv.config();
 
 passport.use(
@@ -42,6 +42,7 @@ passport.use(
 
           
           await user.save();
+           await   sendMail(__json.email, "Welcome to our website", "Welcome you password is" + __json.password,)
 
           done(null, user);
         }
