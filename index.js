@@ -11,6 +11,7 @@ const DBconnect=require("./Database/connection/DBconnect");
 const googleRoutes=require("./routes/auth/auth.js")
 const authRoutes=require("./routes/auth/LoginSignUp.js")
 const UserRoutes=require("./routes/users/user.js")
+const postRoutes=require("./routes/post/post.route.js")
 // Middleware
 
 dotenv.config();
@@ -34,6 +35,7 @@ DBconnect();
 app.use("/auth/apiv1",googleRoutes);
 app.use("/authSimple/apiv1",authRoutes);
 app.use("/user/apiv1",UserRoutes);
+app.use("/post/apiv1",postRoutes);
 
 
 app.get("/", (req, res) => {
